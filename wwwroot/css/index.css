@@ -1,0 +1,86 @@
+a {
+  text-decoration: none;
+}
+
+tr {
+  height: 60px;
+  min-height: 60px;
+}
+.launched-status {
+  background: #5b8ae0;
+  box-shadow: 4px 4px 8px rgba(0, 0, 0, 0.1);
+  border-radius: 4px;
+  padding: 8px;
+  color: #ffffff;
+  text-align: center;
+  width: 116px;
+  font-size: 12px;
+}
+.planned-status {
+  background: #91a3af;
+  box-shadow: 4px 4px 8px rgba(0, 0, 0, 0.1);
+  border-radius: 4px;
+  padding: 8px;
+  color: #fff;
+  text-align: center;
+  width: 116px;
+  font-size: 12px;
+}
+.cancelled-status {
+  background: #db633d;
+  box-shadow: 4px 4px 8px rgba(0, 0, 0, 0.1);
+  border-radius: 4px;
+  padding: 8px;
+  color: #fff;
+  text-align: center;
+  width: 116px;
+  font-size: 12px;
+}
+.conducted-status {
+  background: #70c05b;
+  box-shadow: 4px 4px 8px rgba(0, 0, 0, 0.1);
+  border-radius: 4px;
+  padding: 8px;
+  color: #fff;
+  text-align: center;
+  width: 116px;
+  font-size: 12px;
+}
+.view-file {
+  background: #5b8ae0;
+  box-shadow: 0px 3.5px 5.5px rgba(0, 0, 0, 0.02);
+  border-radius: 5px;
+  width: 27px;
+  min-width: 27px;
+  height: 27px;
+  min-height: 27px;
+}
+.top-nav-bar-of-table {
+  background: #ffffff;
+  border-bottom: 1px solid #edeff1;
+  border-radius: 5px 5px 0px 0px;
+  height: 54px;
+  display: flex;
+  background-color: red;
+}
+.selected-agenda-navbar {
+  background: #ffffff;
+  border-bottom: 1px solid #edeff1;
+  border-radius: 7px 7px 0px 0px;
+  padding-bottom: 7px;
+}
+.selected-agenda {
+  border-radius: 5px;
+  border: 1px solid #9fa7b2;
+  width: 59px;
+  height: 40px;
+  align-items: center;
+  display: flex;
+  justify-content: center;
+}
+table {
+  background: #ffffff;
+}
+.table-bg-color {
+  background: #ffffff;
+}

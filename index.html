@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="/wwwroot/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="/wwwroot/css/index.css" />
+    <link rel="stylesheet" href="/wwwroot/css/all.css" />
+    <link rel="stylesheet" href="/wwwroot/css/navbar.css" />
+</head>
+<body>
+    <header>
+        <nav class="navbar navbar-expand-sm navbar-light box-shadow nav-bar">
+            <div class="container">
+                <a class="navbar-brand text-light">
+                    <div class="logo-div">
+                        <img width="90" height="42" src="/wwwroot/images/logo.png"/>
+                    </div>
+                </a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".navbar-collapse" aria-controls="navbarSupportedContent"
+                    aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
+                    <ul class="navbar-nav ml-auto flex-grow-1 d-flex justify-content-start">
+                        <li class="nav-item">
+                            <a class="nav-link text-light" href="#">
+                                <img src="/wwwroot/images/four-square.png" width="18" height="18" alt=""><span style="margin-left: 14px;" class="nav-txt-color">Главная</span>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-light" href="#">
+                                <img src="/wwwroot/images/loging.png" width="18" height="18" alt=""><span style="margin-left: 14px;" class="nav-txt-color">Журнал сообщений</span>
+                            </a>
+                        </li>
+                    </ul>
+                    <ul class="navbar-nav ml-auto flex-grow-1 d-flex justify-content-end">
+                        <li class="nav-item">
+                            <a class="nav-link text-light d-flex align-items-center" href="#">
+                                <img src="/wwwroot/images/globe.png" width="18" height="18" alt=""><span class="nav-txt-color"></span>
+                                    <select class="form-select border-0 shadow-none">
+                                        <option selected>Русский</options>
+                                        <option>Кыргызский</options>
+                                    </select>
+                                </span>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-light d-flex align-items-center" href="#">
+                                <img src="/wwwroot/images/example-person.png" width="46" height="46" alt="">
+                                <span style="margin-left: 14px;" class="nav-txt-color">
+                                    <label class="nav-txt-color">Абдыбеков Саламат Айдарович</label>
+                                    <select class="form-select border-0 shadow-none">
+                                        <option selected><img src="/wwwroot/images/private-person.png" width="46" height="46" alt="">Личный кабинет</options>
+                                        <option>Выйти</options>
+                                    </select>
+                                </span>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
+    <main>
+
+        <div class="container">
+            <div class="row mt-3">
+                <div class="col-md-10">
+                    <h5>Главная / Журнал совещаний</h5>
+                </div>
+                <div class="col-md-2 d-flex justify-content-end">
+                    <button class="btn text-light" style="background: #91a3af;" id="filter-btn">Фильтр</button>
+                </div>
+            </div>
+            <div id="filter-menu" class="row mt-2" style="background-color: #ffff; padding: 10px;border-radius:7px;display: none;">
+                <div class="col-md-2">
+                    <label style="margin-left: 10px;">Период c:</label>
+                        <input class="form-control" type="date"/>
+                </div>
+                <div class="col-md-2">
+                    <label style="margin-left: 10px;">По</label>
+                        <input class="form-control" type="date"/>
+                </div>
+                <div class="col-md-2">
+                    <label style="margin-left: 10px;">Статус:</label>
+                    <select class="form-control">
+                        <option selected disabled>Выберите статус</option>
+                        <option>Активный</option>
+                        <option>Архив</option>
+                        <option>Все</option>
+                    </select>
+                </div>
+                <div class="col-md-2">
+                    <label style="margin-left: 10px;">Совещение:</label>
+                    <div class="d-flex align-items-center">
+                        <input class="form-control" type="text"/>
+                    </div>
+                </div>
+                <div class="col-md-1">
+                </div>
+                <div class="col-md-3 mt-4 d-flex justify-content-end" >
+                    <div>
+                        <button class="btn primary-btn text-light" type="submit">Поиск</button>
+                        <button class="btn default-btn" type="button">Очистить</button>
+                    </div>
+                </div>
+            </div>
+            <div class="row mt-4 selected-agenda-navbar">
+                <div class="mt-2 d-flex">
+                    <div class="col-md-1">
+                            <img style="margin-left: 2.0rem;" src="/wwwroot/images/journal.png"/>
+                    </div>
+                    <div class="col-md-6">
+                        <div>
+                            <button class="btn primary-btn" id="all-agenda-btn" onclick="hideShow('all')">Все</button>
+                            <button class="btn btn-default" id="active-agenda-btn" onclick="hideShow('active')">Активные</button>
+                            <button class="btn btn-default" id="archive-agenda-btn" onclick="hideShow('archive')">Архив</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row table-bg-color">
+            <div class="table-responsive">
+                <table class="table table-striped">
+                <thead>
+                  <tr>
+                    <th class="default-text-color" scope="col">№ n/n</th>
+                    <th class="default-text-color" scope="col">Дата совещения</th>
+                    <th class="default-text-color" scope="col">Время</th>
+                    <th class="default-text-color" scope="col">Совещение</th>
+                    <th class="default-text-color" scope="col">Статус</th>
+                    <th class="default-text-color" scope="col">Действие</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <th scope="row">1</th>
+                    <td>11.01.2023</td>
+                    <td>15:00</td>
+                    <td>Совещание 1</td>
+                    <td><div class="launched-status">Запущенно</div></td>
+                    <td>
+                        <a href="#">
+                            <div class="d-flex justify-content-center">
+                                    <span class="text-dark">Просмотр</span>
+                                        <div class="view-file mx-auto">
+                                    <img style="margin-left: 4px" src="/wwwroot/images/file.png" />
+                            </div>
+                         </a>
+                    </td>
+                  </tr>
+                  <tr>
+                    <th scope="row">2</th>
+                    <td>11.01.2023</td>
+                    <td>15:00</td>
+                    <td>Совещание 2</td>
+                    <td><div class="planned-status">Запланировано</div></td>
+                    <td>
+                        <a href="#">
+                            <div class="d-flex justify-content-center">
+                                    <span class="text-dark">Просмотр</span>
+                                        <div class="view-file mx-auto">
+                                    <img style="margin-left: 4px" src="/wwwroot/images/file.png" />
+                            </div>
+                         </a>
+                    </td>
+                  </tr>
+                  <tr>
+                    <th scope="row">3</th>
+                    <td>11.01.2023</td>
+                    <td>15:00</td>
+                    <td>Совещание 3</td>
+                    <td><div class="cancelled-status ">Отменено</div></td>
+                    <td>
+                        <a href="#">
+                            <div class="d-flex justify-content-center">
+                                    <span class="text-dark">Просмотр</span>
+                                        <div class="view-file mx-auto">
+                                    <img style="margin-left: 4px" src="/wwwroot/images/file.png" />
+                            </div>
+                         </a>
+                    </td>
+                  </tr>
+                  <tr>
+                    <th scope="row">3</th>
+                    <td>11.01.2023</td>
+                    <td>15:00</td>
+                    <td>Совещание 4</td>
+                    <td><div class="conducted-status">Проведено</div></td>
+                    <td>
+                        <a href="#">
+                            <div class="d-flex justify-content-center">
+                                    <span class="text-dark">Просмотр</span>
+                                        <div class="view-file mx-auto">
+                                    <img style="margin-left: 4px" src="/wwwroot/images/file.png" />
+                            </div>
+                         </a>
+                    </td>
+                  </tr>
+                </tbody>
+                </table>
+            </div>
+            </div>
+        </div>
+    </main>
+    <footer></footer>
+
+    <script type="text/javascript" src="/wwwroot/js/script.js"></script>
+
+    <script type="text/javascript">
+        $(document).ready(function(){
+            $("#filter-menu").addClass("display-none")
+            $("#filter-btn").click(function(){
+                $("#filter-menu").slideToggle("slow");
+            });
+        });
+    </script>
+</body>
+</html>
